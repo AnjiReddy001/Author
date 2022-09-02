@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="header :: html_head">
+	<meta charset="ISO-8859-1">
+	<title>Digital-Book</title>
+</head>
+
+<body>
+	<div class="container">
+		<div th:replacer="header :: header">static header</div>
+		<div>
+			<h1>Digital_Book Application | [[${pageTitle}]]</h1>
+		</div>
+		<form th:action="@{/book/save}" th:object="${book}" method="post" style="max-width: 400px; margin: 0 auto;">
+			<div>
+				<input type="hidden" th:field="*{bookId}" />
+				<p>
+					<label>Book Name:</label>
+					<input type="text" th:field="*{bookname}" class="form-control" required minlength="3" maxlength="6">
+				</p>
+				<p>
+					<img id="thumbnail" alt="Logo Preview" />
+				</p>
+				<p>
+					<label>Author name:</label>
+					<input type="text" th:field="*{authorName}" class="form-control" required minlength="3"
+						maxlength="6">
+				</p>
+				<p>
+					<label>Price:</label>
+					<input type="text" th:field="*{price}" class="form-control" required minlength="3" maxlength="5">
+				</p>
+				<p>
+					<label>logo:</label>
+					<input type="file" value="fileImage" id="fileImage" accept="image/png, image/jpeg" />
+				</p>
+				<p>
+					<label>publisher:</label>
+					<input type="text" th:field="*{publisher}" class="form-control" required minlength="3"
+						maxlength="5">
+				</p>
+				<p>
+					<label>published Year:</label>
+					<input type="text" th:field="*{publishedYear}" class="form-control" required minlength="3"
+						maxlength="5">
+				</p>
+			</div>
+
+
+</body>
+
+</html>
